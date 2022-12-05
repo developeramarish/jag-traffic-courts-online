@@ -1158,17 +1158,6 @@
             "100"
           ]
         },
-        "id": "f5967ca8-1f0c-456f-a864-c339ea948430",
-        "name": "aes-generated",
-        "providerId": "aes-generated",
-        "subComponents": {}
-      },
-      {
-        "config": {
-          "priority": [
-            "100"
-          ]
-        },
         "id": "c58e4e51-9873-464f-a48b-6f5dd5c91b49",
         "name": "rsa-generated",
         "providerId": "rsa-generated",
@@ -1201,17 +1190,20 @@
         "name": "rsa-enc-generated",
         "providerId": "rsa-enc-generated",
         "subComponents": {}
+      },
+      {
+        "config": {
+          "priority": [
+            "100"
+          ]
+        },
+        "id": "f5967ca8-1f0c-456f-a864-c339ea948430",
+        "name": "aes-generated",
+        "providerId": "aes-generated",
+        "subComponents": {}
       }
     ],
     "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy": [
-      {
-        "config": {},
-        "id": "da79bd9b-7e9c-41a1-bc59-03b29bab6004",
-        "name": "Full Scope Disabled",
-        "providerId": "scope",
-        "subComponents": {},
-        "subType": "anonymous"
-      },
       {
         "config": {
           "max-clients": [
@@ -1291,9 +1283,17 @@
             "true"
           ]
         },
-        "id": "5cf23fef-ba4b-4d5e-9f1e-e87cc457bef3",
+        "id": "c9ecc68f-e0b4-4de1-b0f1-a29c05395868",
         "name": "Allowed Client Scopes",
         "providerId": "allowed-client-templates",
+        "subComponents": {},
+        "subType": "authenticated"
+      },
+      {
+        "config": {},
+        "id": "da79bd9b-7e9c-41a1-bc59-03b29bab6004",
+        "name": "Full Scope Disabled",
+        "providerId": "scope",
         "subComponents": {},
         "subType": "anonymous"
       },
@@ -1303,11 +1303,19 @@
             "true"
           ]
         },
-        "id": "c9ecc68f-e0b4-4de1-b0f1-a29c05395868",
+        "id": "5cf23fef-ba4b-4d5e-9f1e-e87cc457bef3",
         "name": "Allowed Client Scopes",
         "providerId": "allowed-client-templates",
         "subComponents": {},
-        "subType": "authenticated"
+        "subType": "anonymous"
+      }
+    ],
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "config": {},
+        "id": "770844f2-f964-4b8d-a8c0-1411d0d38d00",
+        "providerId": "declarative-user-profile",
+        "subComponents": {}
       }
     ]
   },
@@ -1336,7 +1344,7 @@
   "defaultSignatureAlgorithm": "RS256",
   "directGrantFlow": "direct grant",
   "dockerAuthenticationFlow": "docker auth",
-  "duplicateEmailsAllowed": false,
+  "duplicateEmailsAllowed": true,
   "editUsernameAllowed": false,
   "enabled": true,
   "enabledEventTypes": [],
@@ -1349,25 +1357,25 @@
   "identityProviderMappers": [
     {
       "config": {
-        "claim": "displayName",
+        "claim": "display_name",
         "syncMode": "INHERIT",
-        "user.attribute": "displayName"
+        "user.attribute": "display_name"
       },
-      "id": "e1b680fa-e12c-43e1-820b-02448f53ec56",
+      "id": "9814574e-0aa7-4c00-99fb-bab8a9e968ed",
       "identityProviderAlias": "idir",
       "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "displayName"
+      "name": "display_name"
     },
     {
       "config": {
-        "claim": "idir_userid",
+        "claim": "family_name",
         "syncMode": "INHERIT",
-        "user.attribute": "idir_user_guid"
+        "user.attribute": "family_name"
       },
-      "id": "fb5aa5dd-0688-41fe-88b9-3be9ed51480d",
+      "id": "b4275e1d-543a-4998-86c2-f7358122ee16",
       "identityProviderAlias": "idir",
       "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "idir_guid"
+      "name": "family_name"
     },
     {
       "config": {
@@ -1382,68 +1390,36 @@
     },
     {
       "config": {
-        "claim": "userPrincipalName",
+        "claim": "given_name",
         "syncMode": "INHERIT",
-        "user.attribute": "userPrincipalName"
+        "user.attribute": "given_name"
       },
-      "id": "4a1c81c0-39c2-4261-bd85-36b7d88f7cb9",
+      "id": "05709ddb-1ed6-4108-82ff-6b30eec5d09a",
       "identityProviderAlias": "idir",
       "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "userPrincipalName"
+      "name": "given_name"
     },
     {
       "config": {
+        "claim": "idir_user_guid",
         "syncMode": "INHERIT",
-        "template": "${CLAIM.preferred_username}"
+        "user.attribute": "useridentifier"
       },
-      "id": "a9fe0d20-2739-4050-a312-fc9a9b68f64d",
+      "id": "167e03ca-34ac-4c9f-b654-c094c1541f56",
       "identityProviderAlias": "idir",
-      "identityProviderMapper": "oidc-username-idp-mapper",
-      "name": "username"
+      "identityProviderMapper": "oidc-user-attribute-idp-mapper",
+      "name": "useridentifier"
     },
     {
       "config": {
-        "claim": "firstName",
+        "claim": "idir_username",
         "syncMode": "INHERIT",
-        "user.attribute": "firstName"
+        "user.attribute": "idir_username"
       },
-      "id": "698dfe00-6f9e-4866-9a3d-28ebeb13136a",
+      "id": "8c2e50a9-7e24-48ec-9f86-eb2bb27abc56",
       "identityProviderAlias": "idir",
       "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "firstName"
-    },
-    {
-      "config": {
-        "claim": "idir_userid",
-        "syncMode": "INHERIT",
-        "user.attribute": "idir_userid"
-      },
-      "id": "2bc67e05-419c-43ff-892d-dd0f864801fb",
-      "identityProviderAlias": "idir",
-      "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "idir_userid"
-    },
-    {
-      "config": {
-        "claim": "lastName",
-        "syncMode": "INHERIT",
-        "user.attribute": "lastName"
-      },
-      "id": "6982e629-eb2f-49e7-a964-d50fe0f412db",
-      "identityProviderAlias": "idir",
-      "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "lastName"
-    },
-    {
-      "config": {
-        "claim": "samaccountname",
-        "syncMode": "INHERIT",
-        "user.attribute": "samaccountname"
-      },
-      "id": "ae2f9d23-da6d-41fb-aa7f-f04d0e088935",
-      "identityProviderAlias": "idir",
-      "identityProviderMapper": "oidc-user-attribute-idp-mapper",
-      "name": "samaccountname"
+      "name": "idir_username"
     }
   ],
   "identityProviders": [
@@ -1452,19 +1428,19 @@
       "alias": "idir",
       "authenticateByDefault": false,
       "config": {
-        "authorizationUrl": "https://dev.oidc.gov.bc.ca/auth/realms/onestopauth/protocol/openid-connect/auth",
+        "authorizationUrl": "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/auth",
         "backchannelSupported": "true",
         "clientAuthMethod": "client_secret_basic",
-        "clientId": "traffic-courts-online-3499",
+        "clientId": "traffic-courts-online-4437",
         "clientSecret": "**********",
-        "issuer": "https://dev.oidc.gov.bc.ca/auth/realms/onestopauth",
-        "jwksUrl": "https://dev.oidc.gov.bc.ca/auth/realms/onestopauth/protocol/openid-connect/certs",
+        "issuer": "https://dev.loginproxy.gov.bc.ca/auth/realms/standard",
+        "jwksUrl": "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/certs",
         "loginHint": "true",
-        "logoutUrl": "https://dev.oidc.gov.bc.ca/auth/realms/onestopauth/protocol/openid-connect/logout",
+        "logoutUrl": "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/logout",
         "syncMode": "FORCE",
-        "tokenUrl": "https://dev.oidc.gov.bc.ca/auth/realms/onestopauth/protocol/openid-connect/token",
+        "tokenUrl": "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/token",
         "useJwksUrl": "true",
-        "userInfoUrl": "https://dev.oidc.gov.bc.ca/auth/realms/onestopauth/protocol/openid-connect/userinfo",
+        "userInfoUrl": "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/userinfo",
         "validateSignature": "true"
       },
       "displayName": "IDIR",
@@ -1480,7 +1456,7 @@
   ],
   "internationalizationEnabled": false,
   "keycloakVersion": "18.0.2",
-  "loginWithEmailAllowed": true,
+  "loginWithEmailAllowed": false,
   "maxDeltaTimeSeconds": 43200,
   "maxFailureWaitSeconds": 900,
   "minimumQuickLoginWaitSeconds": 60,
