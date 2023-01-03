@@ -435,15 +435,6 @@ public class Dispute extends Auditable<String> {
 	private String disputantOcrIssues;
 
 	/**
-	 * Identifier for whether the system has detected any issues with the OCR ticket
-	 * result or not.
-	 */
-	@Column
-	@Schema(nullable= false)
-	@Enumerated(EnumType.STRING)
-	private YesNo systemDetectedOcrIssues;
-
-	/**
 	 * Filename of JSON serialized OCR data that is saved in object storage.
 	 */
 	@Size(max = 100)

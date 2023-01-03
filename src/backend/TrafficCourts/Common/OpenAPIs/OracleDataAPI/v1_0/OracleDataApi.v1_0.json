@@ -2000,10 +2000,6 @@
             "type": "string",
             "nullable": true
           },
-          "systemDetectedOcrIssues": {
-            "type": "string",
-            "enum": [ "UNKNOWN", "Y", "N" ]
-          },
           "ocrTicketFilename": {
             "maxLength": 100,
             "minLength": 0,

@@ -83,7 +83,6 @@ public interface ViolationTicketMapper {
 	@Mapping(target = "dispute.userAssignedDtm", source = "userAssignedTs")
 	@Mapping(target = "dispute.disputantDetectOcrIssuesYn", source = "disputantDetectedOcrIssues")
 	@Mapping(target = "dispute.disputantOcrIssuesTxt", source = "disputantOcrIssues")
-	@Mapping(target = "dispute.systemDetectOcrIssuesYn", source = "systemDetectedOcrIssues")
 	@Mapping(target = "dispute.ocrTicketJsonFilenameTxt", source = "ocrTicketFilename")
 	// Only setting Country IDs to 1 (Canada) as default for now, other IDs must be set from the actual dispute model source from request
 	// If these IDs are passed as null, then the actual string value of the field such as (drvLicIssuedIntlProvTxt) will be saved based on the logic in the database

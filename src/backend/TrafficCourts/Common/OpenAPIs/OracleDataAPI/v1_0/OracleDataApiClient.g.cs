@@ -4845,10 +4845,6 @@ namespace TrafficCourts.Common.OpenAPIs.OracleDataApi.v1_0
         [Newtonsoft.Json.JsonProperty("disputantOcrIssues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisputantOcrIssues { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("systemDetectedOcrIssues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DisputeSystemDetectedOcrIssues SystemDetectedOcrIssues { get; set; }
-
         [Newtonsoft.Json.JsonProperty("ocrTicketFilename", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(100)]
         public string OcrTicketFilename { get; set; }
@@ -5672,21 +5668,6 @@ namespace TrafficCourts.Common.OpenAPIs.OracleDataApi.v1_0
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.17.0.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum DisputeDisputantDetectedOcrIssues
-    {
-
-        [System.Runtime.Serialization.EnumMember(Value = @"UNKNOWN")]
-        UNKNOWN = 0,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Y")]
-        Y = 1,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"N")]
-        N = 2,
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.17.0.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public enum DisputeSystemDetectedOcrIssues
     {
 
         [System.Runtime.Serialization.EnumMember(Value = @"UNKNOWN")]
