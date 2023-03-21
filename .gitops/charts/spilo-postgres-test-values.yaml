@@ -9,11 +9,11 @@ persistentVolume:
 
 resources:
   requests:
-    cpu: 250m
-    memory: 256Mi
+    cpu: 100m
+    memory: 128Mi
   limits:
-    cpu: 250m
-    memory: 256Mi
+    cpu: 100m
+    memory: 128Mi
 
 postgresMajorVersion: 15
 
@@ -24,7 +24,4 @@ containerSecurityContext:
   enabled: false
 
 continuousArchive:
-  storage: s3
-  s3:
-    bucket: ag-pssg-tco-trafficticket-test-bkt
-    secretName: postgres-s3-backup-credentials
+  enabled: false
