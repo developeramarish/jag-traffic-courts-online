@@ -3,8 +3,17 @@ fullnameOverride: "virus-scan"
 clamav:
   resources:
     requests:
-      cpu: 500m
-      memory: 2Gi
+      cpu: 50m
+      memory: 1.5Gi
     limits:
-      cpu: 500m
-      memory: 2Gi
+      cpu: 50m
+      memory: 1.5Gi
+
+virusScanService:
+  resources:
+    limits:
+      cpu: 10m
+      memory: 50Mi
+    requests:
+      cpu: 10m
+      memory: 50Mi
