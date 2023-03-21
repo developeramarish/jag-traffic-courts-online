@@ -25,11 +25,11 @@ fullnameOverride: ""
 
 resources:
   limits:
-    cpu: 150m
-    memory: 512Mi
+    cpu: 5m
+    memory: 128Mi
   requests:
-    cpu: 100m
-    memory: 256Mi
+    cpu: 5m
+    memory: 128Mi
 
 ## Autoscaling configuration
 ## ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
