@@ -105,7 +105,10 @@ azure:
     secret:
       key: FORMRECOGNIZER__APIKEY
   billing:
-    endpoint: https://ag-ocrformrecognizer-dev.cognitiveservices.azure.com/
+    # Endpoint of Form Recognizer instance in Azure.
+    # See: Keys and Endpoint
+    # endpoint will like: https://<name>.cognitiveservices.azure.com/
+    endpoint: ""
 
 imagePullSecrets: []
 

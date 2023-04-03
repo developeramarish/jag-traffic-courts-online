@@ -1,0 +1,12 @@
+layout:
+  resources:
+    limits:
+      cpu: '2'
+      memory: 2Gi
+    requests:
+      cpu: '1'
+      memory: 1Gi
+
+azure:
+  billing:
+    endpoint: https://ag-ocrformrecognizer-dev.cognitiveservices.azure.com/
